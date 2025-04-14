@@ -40,7 +40,7 @@ const ContactSection = () => {
             transition={{ delay: 0.2 }}
             className="text-4xl font-bold text-white mb-6 text-center md:text-left"
           >
-            Let's Connect
+            Let Us Connect
             <motion.span
               className="ml-1 text-blue-300"
               animate={{ opacity: [0, 1, 0] }}

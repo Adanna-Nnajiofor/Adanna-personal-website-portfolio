@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import ProjectCard from "../../components/TechProjectCard";
@@ -64,7 +64,7 @@ const TechPage = () => {
         <h1 className="text-5xl font-extrabold text-white">Tech Projects</h1>
         <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
           A collection of my work in frontend development, UI/UX design, and
-          full-stack applications. Explore and discover what I've built!
+          full-stack applications. Explore and discover what I have built!
         </p>
 
         {/* Back Button */}

@@ -153,9 +153,9 @@ const AboutSection = () => {
               My Design Philosophy
             </h2>
             <p className="text-lg text-gray-700 dark:text-gray-300 italic">
-              "Great design is more than aesthetics—it's about functionality,
-              usability, and experience. I bring an architect’s precision into
-              frontend development, crafting intuitive and captivating designs."
+              Great design is more than aesthetics. it is about functionality,
+              usability, and experience. I bring an architect precision into
+              frontend development, crafting intuitive and captivating designs.
             </p>
           </motion.div>
 

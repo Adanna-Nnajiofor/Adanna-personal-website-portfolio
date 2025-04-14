@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
-import { Sun, Moon } from "lucide-react";
+// import { Menu, X } from "lucide-react";
+// import { Sun, Moon } from "lucide-react";
 import DarkModeToggle from "./DarkModeToggle";
 
 const sections = [
@@ -24,7 +24,7 @@ interface NavbarProps {
 const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const [theme, setTheme] = useState<string>("light");
+  // const [theme, setTheme] = useState<string>("light");
 
   // Handle smooth scrolling
   const handleScroll = (id: string) => {

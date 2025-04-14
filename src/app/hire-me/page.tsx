@@ -39,6 +39,7 @@ const HireMe = () => {
         setSuccessMessage("Oops, something went wrong. Try again.");
       }
     } catch (error) {
+      console.error(error);
       setSuccessMessage("Connection error. Please try again later.");
     } finally {
       setIsSubmitting(false);
@@ -69,12 +70,13 @@ const HireMe = () => {
           Crafting Spaces, Shaping Pixels
         </h1>
         <p className="text-lg mt-4 text-gray-300 max-w-md mx-auto lg:mx-0">
-          Whether it's designing architectural masterpieces or intuitive digital
-          products — I blend form, function, and imagination into every project.
+          Whether it is designing architectural masterpieces or intuitive
+          digital products. I blend form, function, and imagination into every
+          project.
         </p>
 
         <div className="mt-6 flex flex-wrap justify-center lg:justify-start gap-3">
-          {skills.map((skill, i) => (
+          {skills.map((skill) => (
             <motion.span
               key={skill}
               whileHover={{ scale: 1.15 }}

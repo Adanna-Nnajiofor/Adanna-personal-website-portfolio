@@ -69,7 +69,7 @@ const HomeSection = () => {
           transition={{ delay: 0.5, duration: 0.6 }}
           className="text-lg font-medium text-gray-600 dark:text-gray-400"
         >
-          Hi, I'm Adanna! Welcome to my creative space.
+          Hi, I am Adanna! Welcome to my creative space.
         </motion.p>
         <h2 className="text-4xl md:text-5xl font-extrabold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500">
           I am{" "}

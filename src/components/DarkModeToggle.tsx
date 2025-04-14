@@ -3,7 +3,7 @@ import { Moon, Sun } from "lucide-react";
 
 const DarkModeToggle = () => {
   const [theme, setTheme] = useState<string | null>(null);
-  const [mounted, setMounted] = useState(false); // Track if the component is mounted
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     // Only run this logic in the client
@@ -26,7 +26,7 @@ const DarkModeToggle = () => {
         initialTheme === "dark"
       );
     }
-  }, [mounted]); // Run when the component is mounted (client-side)
+  }, [mounted]);
 
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
