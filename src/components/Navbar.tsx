@@ -1,9 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-// import { Menu, X } from "lucide-react";
-// import { Sun, Moon } from "lucide-react";
 import DarkModeToggle from "./DarkModeToggle";
 
 const sections = [
@@ -23,8 +21,11 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
 
-  // const [theme, setTheme] = useState<string>("light");
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   // Handle smooth scrolling
   const handleScroll = (id: string) => {
@@ -36,16 +37,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     }
   };
 
-  // Apply stored theme when the component mounts
-  // useEffect(() => {
-  //   const storedTheme = localStorage.getItem("theme") || "light";
-  //   setTheme(storedTheme);
-  //   if (storedTheme === "dark") {
-  //     document.documentElement.classList.add("dark");
-  //   } else {
-  //     document.documentElement.classList.remove("dark");
-  //   }
-  // }, []);
+  if (!hasMounted) return null;
 
   return (
     <nav className="fixed top-0 w-full bg-white dark:bg-gray-900 shadow-md p-4 flex justify-between items-center z-50">

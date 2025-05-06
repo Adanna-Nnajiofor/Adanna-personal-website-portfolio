@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { dbArch } from "../config/firebaseConfig";
 
@@ -20,6 +20,8 @@ export default function ArchitectureProjectList({
   setProjects,
   setLoading,
 }: ProjectListProps) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     const fetchProjects = async () => {
       setLoading(true);
@@ -28,23 +30,26 @@ export default function ArchitectureProjectList({
           collection(dbArch, "architectureprojects")
         );
 
-        // Mapping the fetched documents to project data
         const projectsData: BaseProject[] = querySnapshot.docs.map((doc) => ({
           id: doc.id,
           ...(doc.data() as Omit<BaseProject, "id">),
         }));
 
-        // Setting the fetched projects to the state
         setProjects(projectsData);
       } catch (error) {
         console.error("Error fetching projects from Firestore:", error);
       } finally {
         setLoading(false);
+        setIsLoaded(true);
       }
     };
 
     fetchProjects();
   }, [setProjects, setLoading]);
+
+  if (!isLoaded) {
+    return null;
+  }
 
   return null;
 }

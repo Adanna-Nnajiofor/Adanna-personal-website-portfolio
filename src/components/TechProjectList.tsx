@@ -24,33 +24,35 @@ export default function TechProjectList({
   setLoading,
 }: TechProjectListProps) {
   useEffect(() => {
+    let mounted = true;
+
     const fetchTechProjects = async () => {
       setLoading(true);
       try {
-        const querySnapshot = await getDocs(collection(dbTech, "techprojects"));
-        const projectsData: Project[] = querySnapshot.docs.map((doc) => {
-          const data = doc.data();
-          return {
-            id: doc.id, // fallback to timestamp if id is not a number
-            title: data.title || "",
-            description: data.description || "",
-            category: data.category || "Uncategorized",
-            techStack: data.techStack || [],
-            image: data.image || "/fallback.jpg",
-            link: data.link || "#",
-            github: data.github || "#",
-          };
-        });
+        const snapshot = await getDocs(collection(dbTech, "techprojects"));
+        const data: Project[] = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          title: doc.data().title ?? "",
+          description: doc.data().description ?? "",
+          category: doc.data().category ?? "Uncategorized",
+          techStack: doc.data().techStack ?? [],
+          image: doc.data().image ?? "/fallback.jpg",
+          link: doc.data().link ?? "#",
+          github: doc.data().github ?? "#",
+        }));
 
-        setTechProjects(projectsData);
-      } catch (error) {
-        console.error("Error fetching tech projects from Firestore:", error);
+        if (mounted) setTechProjects(data);
+      } catch (err) {
+        console.error("Firestore error:", err);
       } finally {
-        setLoading(false);
+        if (mounted) setLoading(false);
       }
     };
 
     fetchTechProjects();
+    return () => {
+      mounted = false;
+    };
   }, [setTechProjects, setLoading]);
 
   return null;

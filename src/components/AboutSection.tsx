@@ -27,7 +27,7 @@ const timelineItems = [
 
 const AboutSection = () => {
   return (
-    <div>
+    <div id="about">
       <Head>
         <title>About | Adanna Nnajiofor</title>
         <meta
@@ -36,10 +36,7 @@ const AboutSection = () => {
         />
       </Head>
 
-      <div
-        id="about"
-        className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-100 to-gray-200 dark:from-blue-900 dark:to-gray-800 text-gray-900 dark:text-white py-12 px-6 md:px-20 overflow-hidden"
-      >
+      <div className="min-h-screen flex flex-col items-center justify-center  text-gray-900 dark:text-white py-12 px-6 md:px-20 overflow-hidden">
         <div className="max-w-5xl mx-auto">
           {/* Profile Image & Intro */}
           <motion.div

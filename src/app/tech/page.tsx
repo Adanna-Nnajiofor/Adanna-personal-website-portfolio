@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import ProjectCard from "../../components/TechProjectCard";
@@ -22,7 +22,13 @@ const TechPage = () => {
   const [loading, setLoading] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
+  const [isMounted, setIsMounted] = useState(false);
+
   const projectsPerPage = 6;
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const categories = [
     "All",
@@ -51,6 +57,8 @@ const TechPage = () => {
   const handleNext = () => {
     if (currentPage < totalPages) setCurrentPage(currentPage + 1);
   };
+
+  if (!isMounted) return null;
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-500 via-purple-600 to-green-500 text-gray-100 py-12 px-6 md:px-12">

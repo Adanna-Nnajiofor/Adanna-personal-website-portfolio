@@ -26,7 +26,7 @@ const WorkSection = () => {
   return (
     <div
       id="work"
-      className="relative flex flex-col items-center justify-center bg-gradient-to-b from-gray-950 via-blue-900 to-black text-white px-6 py-24 overflow-hidden"
+      className="relative flex flex-col items-center justify-center  text-white px-6 py-24 overflow-hidden "
     >
       {/* Fetch architecture and tech projects */}
       <ArchitectureProjectList
@@ -43,7 +43,7 @@ const WorkSection = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-5xl md:text-7xl font-extrabold text-center mb-12 text-white drop-shadow-xl"
+        className="text-5xl md:text-7xl font-extrabold text-center mb-12 text-blue-200 drop-shadow-xl"
       >
         Explore My <span className="text-blue-400">Work</span>
       </motion.h1>
@@ -95,7 +95,7 @@ const WorkSection = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="w-full lg:w-1/2 p-6 bg-white/5 rounded-xl shadow-inner border border-white/10"
+            className="w-full lg:w-1/2 p-6 bg-gray-700 rounded-xl shadow-inner border border-white/10"
           >
             <h3 className="text-3xl font-bold text-blue-400 mb-4 text-center lg:text-left">
               Architecture Projects
@@ -119,7 +119,7 @@ const WorkSection = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="w-full lg:w-1/2 p-6 bg-white/5 rounded-xl shadow-inner border border-white/10"
+            className="w-full lg:w-1/2 p-6 bg-gray-700 rounded-xl shadow-inner border border-white/10"
           >
             <h3 className="text-3xl font-bold text-green-400 mb-4 text-center lg:text-left">
               Tech Projects

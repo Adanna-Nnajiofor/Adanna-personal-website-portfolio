@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
@@ -15,17 +15,24 @@ import {
 
 const ContactSection = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
 
   return (
     <div
       id="contact"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-900 to-gray-900 px-6 py-12"
+      className="min-h-screen flex items-center justify-center  px-6 py-12"
     >
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, type: "spring" }}
-        className="bg-white/10 backdrop-blur-lg shadow-xl rounded-2xl p-8 w-full max-w-6xl flex flex-col md:flex-row items-center md:items-stretch border border-white/20 animate-float"
+        className="bg-gradient-to-br from-blue-900 to-gray-900/10 backdrop-blur-lg shadow-xl rounded-2xl p-8 w-full max-w-6xl flex flex-col md:flex-row items-center md:items-stretch border border-white/20 animate-float"
       >
         {/* Contact Form */}
         <motion.div

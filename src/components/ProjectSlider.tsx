@@ -13,8 +13,8 @@ interface Project {
   title: string;
   description: string;
   image: string;
-  link?: string; // Optional link
-  github?: string; // Optional GitHub link
+  link?: string;
+  github?: string;
 }
 
 // Define prop type for ProjectSlider

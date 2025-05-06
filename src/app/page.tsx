@@ -41,7 +41,7 @@ export default function Home() {
   return (
     <div>
       <Navbar activeSection={activeSection} />
-      <main className="snap-y snap-mandatory h-full overflow-y-scroll scroll-smooth">
+      <main className="snap-y snap-mandatory h-full overflow-y-scroll scroll-smooth ">
         <section id="home" className="snap-start">
           <HomeSection />
         </section>

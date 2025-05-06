@@ -1,6 +1,8 @@
 "use client";
+
 import { motion } from "framer-motion";
 import { Code, PenTool, Layers, Smartphone, Database } from "lucide-react";
+import FloatingShapes from "./FloatingShapes";
 
 const services = [
   {
@@ -40,7 +42,6 @@ const services = [
   },
 ];
 
-// Card variants for animation
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
@@ -49,10 +50,9 @@ const cardVariants = {
     transition: { duration: 0.6, delay: 0.1 },
   },
   hover: {
-    scaleY: 0.9, // Scale in vertically
-    scaleX: 0.9, // Scale in horizontally
-    rotateX: "10deg", // Add slight rotation for depth
-    rotateY: "10deg", // Add slight rotation for depth
+    scale: 0.95,
+    rotateX: "10deg",
+    rotateY: "10deg",
     boxShadow: "0 12px 24px rgba(0, 255, 255, 0.15)",
     transition: {
       type: "spring",
@@ -66,18 +66,22 @@ const ServicesSection = () => {
   return (
     <div
       id="services"
-      className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-900 to-gray-900 py-12 px-6"
+      className="relative flex items-center justify-center min-h-screen py-12 px-6 overflow-hidden border-b-4 border-amber-950"
     >
+      {/* Floating Background Shapes */}
+      <FloatingShapes />
+
+      {/* Main Content */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         className="max-w-5xl mx-auto text-center"
       >
-        <h1 className="text-5xl font-extrabold text-white mb-6">
-          My <span className="text-blue-300">Services</span>
+        <h1 className="text-5xl font-extrabold text-blue-600 mb-6">
+          My <span className="text-blue-400">Services</span>
         </h1>
-        <p className="text-gray-300 mb-12">
+        <p className="text-gray-600 mb-12">
           From <strong>frontend development</strong> to{" "}
           <strong>architectural designs</strong>, I craft experiences that merge
           aesthetics and functionality.
@@ -101,7 +105,7 @@ const ServicesSection = () => {
                   delay: id * 0.2,
                 },
               }}
-              className="bg-white/10 backdrop-blur-lg p-8 rounded-2xl shadow-lg flex flex-col items-center text-center transition-all duration-300"
+              className="bg-gradient-to-br from-gray-500 via-gray-700 to-blue-400 backdrop-blur-lg p-8 rounded-2xl shadow-lg flex flex-col items-center text-center transition-all duration-300"
             >
               <div className="mb-4">{icon}</div>
               <h3 className="text-2xl font-semibold text-white">{title}</h3>

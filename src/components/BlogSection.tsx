@@ -7,7 +7,7 @@ const BlogSection = () => {
   return (
     <div
       id="blog"
-      className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-gray-200 to-gray-600 px-6 py-12"
+      className="min-h-screen flex flex-col items-center justify-center  px-6 py-12"
     >
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -15,7 +15,7 @@ const BlogSection = () => {
         transition={{ duration: 0.5 }}
         className="max-w-5xl mx-auto text-center"
       >
-        <h1 className="text-5xl font-extrabold text-gray-900 mb-6">
+        <h1 className="text-5xl font-extrabold text-blue-900 mb-6">
           Latest Articles
         </h1>
         <p className="text-lg text-gray-700 mb-12 max-w-3xl mx-auto">

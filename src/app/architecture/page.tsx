@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProjectList from "../../components/ArchitectureProjectList";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,13 +19,21 @@ export default function ArchitecturePage() {
   const [allProjects, setAllProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
+  const [isMounted, setIsMounted] = useState(false);
+
   const projectsPerPage = 6;
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const startIndex = (page - 1) * projectsPerPage;
   const endIndex = startIndex + projectsPerPage;
   const currentProjects = allProjects.slice(startIndex, endIndex);
 
   const totalPages = Math.ceil(allProjects.length / projectsPerPage);
+
+  if (!isMounted) return null;
 
   return (
     <div className="min-h-screen w-full bg-blue-900 bg-gradient-to-r from-blue-200 to-gray-600 text-gray-900">

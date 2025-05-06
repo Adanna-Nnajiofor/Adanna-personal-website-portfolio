@@ -1,12 +1,13 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: "class",
+
   theme: {
     extend: {
       animation: {
@@ -24,6 +25,12 @@ const config: Config = {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
         },
+      },
+      colors: {
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        "gradient-light": "var(--gradient-light)",
+        "gradient-dark": "var(--gradient-dark)",
       },
     },
   },

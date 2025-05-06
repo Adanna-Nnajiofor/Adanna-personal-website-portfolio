@@ -26,6 +26,12 @@ const HomeSection = () => {
   const [darkenedCircles, setDarkenedCircles] = useState(
     new Array(6).fill(false)
   );
+  const [hasMounted, setHasMounted] = useState(false);
+
+  // Prevent hydration mismatch
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   useEffect(() => {
     let timeout;
@@ -49,12 +55,14 @@ const HomeSection = () => {
     }
 
     return () => clearTimeout(timeout);
-  }, [displayedText, isDeleting, careerIndex]);
+  }, [displayedText, isDeleting, careerIndex, hasMounted]);
+
+  if (!hasMounted) return null;
 
   return (
     <div
       id="home"
-      className="relative min-h-screen flex flex-col justify-center items-center transition-all duration-300 text-gray-900 py-12 px-6 overflow-hidden mt-6 lg:mt-12 bg-gradient-to-br from-blue-200 via-blue-300 to-green-400 bg-hero-pattern"
+      className="relative min-h-screen flex flex-col justify-center items-center transition-all duration-300 text-gray-900 py-12 px-6 overflow-hidden mt-6 lg:mt-12 border-b-4 border-amber-950"
     >
       {/* Hero Section */}
       <motion.header
@@ -124,7 +132,7 @@ const HomeSection = () => {
                 });
               }, 600);
             }}
-            className="rounded-full" // Shape of the circles
+            className="rounded-full"
             style={{
               width: `${size * 2}px`,
               height: `${size * 2}px`,
@@ -153,6 +161,8 @@ const HomeSection = () => {
             key={index}
             href={site[1]}
             className="ms-20 uppercase hover:text-[#C8A26B] transition-transform duration-300 transform hover:scale-110"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             {site[0]}
           </a>
