@@ -3,15 +3,38 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
+type Circle = {
+  top: number;
+  left: number;
+  duration: number;
+  delay: number;
+  opacity: number;
+  moveX: number;
+  moveY: number;
+  rotateDirection: number;
+};
+
+type Hex = {
+  top: number;
+  left: number;
+  duration: number;
+  delay: number;
+  opacity: number;
+  scale: number;
+  moveX: number;
+  moveY: number;
+  rotateDirection: number;
+};
+
 const FloatingShapes = () => {
   const [isMounted, setIsMounted] = useState(false);
-  const [circleData, setCircleData] = useState<any[]>([]);
-  const [hexData, setHexData] = useState<any[]>([]);
+  const [circleData, setCircleData] = useState<Circle[]>([]);
+  const [hexData, setHexData] = useState<Hex[]>([]);
 
   useEffect(() => {
     setIsMounted(true);
 
-    const generateRandomCircleData = (count: number) =>
+    const generateRandomCircleData = (count: number): Circle[] =>
       Array.from({ length: count }, () => ({
         top: Math.random() * 100,
         left: Math.random() * 100,
@@ -23,7 +46,7 @@ const FloatingShapes = () => {
         rotateDirection: Math.random() > 0.5 ? 360 : -360,
       }));
 
-    const generateRandomHexData = (count: number) =>
+    const generateRandomHexData = (count: number): Hex[] =>
       Array.from({ length: count }, () => ({
         top: Math.random() * 100,
         left: Math.random() * 100,
