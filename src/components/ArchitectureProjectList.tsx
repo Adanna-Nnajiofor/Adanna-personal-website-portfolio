@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, QuerySnapshot } from "firebase/firestore";
 import { dbArch } from "../config/firebaseConfig";
 
 interface BaseProject {
@@ -23,10 +23,10 @@ export default function ArchitectureProjectList({
   const [error, setError] = useState<string | null>(null);
   const [retryCount, setRetryCount] = useState(0);
 
-  const fetchWithTimeout = <T,>(
-    promise: Promise<T>,
+  const fetchWithTimeout = (
+    promise: Promise<QuerySnapshot>,
     timeoutMs = 10000
-  ): Promise<T> => {
+  ): Promise<QuerySnapshot> => {
     return Promise.race([
       promise,
       new Promise<never>((_, reject) =>

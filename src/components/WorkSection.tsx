@@ -4,8 +4,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { FaDraftingCompass, FaLaptopCode } from "react-icons/fa";
 import ProjectSlider from "./ProjectSlider";
-import ArchitectureProjectList from "../components/ArchitectureProjectList";
-import TechProjectList from "../components/TechProjectList";
+// import ArchitectureProjectList from "../components/ArchitectureProjectList";
+// import TechProjectList from "../components/TechProjectList";
 
 interface BaseProject {
   id: string;
@@ -65,10 +65,10 @@ const WorkSection = () => {
 
   const handleLoadMore = () => {
     if (hasMoreArchitecture) {
-      setPage((prev) => prev + 1); // Load next page of architecture projects
+      setPage((prev) => prev + 1);
     }
     if (hasMoreTech) {
-      setPage((prev) => prev + 1); // Load next page of tech projects
+      setPage((prev) => prev + 1);
     }
   };
 
