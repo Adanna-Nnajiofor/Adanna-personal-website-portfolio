@@ -60,13 +60,20 @@ export default function TechProjectList({
         }));
 
         if (mounted) setTechProjects(data);
-      } catch (err: any) {
+      } catch (err: unknown) {
+        // Change `any` to `unknown`
         console.error("Firestore error:", err);
-        setError(
-          err.message === "TimeoutError"
-            ? "Request timed out. Please try again."
-            : "Something went wrong. Please try again."
-        );
+
+        // Type-checking the error to ensure it's an instance of Error
+        if (err instanceof Error) {
+          setError(
+            err.message === "TimeoutError"
+              ? "Request timed out. Please try again."
+              : "Something went wrong. Please try again."
+          );
+        } else {
+          setError("An unexpected error occurred.");
+        }
       } finally {
         if (mounted) setLoading(false);
       }

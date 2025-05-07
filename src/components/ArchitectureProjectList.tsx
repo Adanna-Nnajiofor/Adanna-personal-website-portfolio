@@ -50,13 +50,20 @@ export default function ArchitectureProjectList({
         }));
 
         setProjects(projectsData);
-      } catch (error: any) {
+      } catch (error: unknown) {
+        // Specify 'unknown' for the error type
         console.error("Fetch error:", error);
-        setError(
-          error.message === "TimeoutError"
-            ? "Request timed out. Please try again."
-            : "Something went wrong. Please try again."
-        );
+
+        // Type-check the error if it's an instance of Error
+        if (error instanceof Error) {
+          setError(
+            error.message === "TimeoutError"
+              ? "Request timed out. Please try again."
+              : "Something went wrong. Please try again."
+          );
+        } else {
+          setError("An unexpected error occurred.");
+        }
       } finally {
         setLoading(false);
       }
