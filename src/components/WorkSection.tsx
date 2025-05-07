@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { FaDraftingCompass, FaLaptopCode } from "react-icons/fa";
@@ -7,7 +7,6 @@ import ProjectSlider from "./ProjectSlider";
 import ArchitectureProjectList from "../components/ArchitectureProjectList";
 import TechProjectList from "../components/TechProjectList";
 
-// Define the BaseProject interface for shared project properties
 interface BaseProject {
   id: string;
   title: string;
@@ -22,22 +21,62 @@ const WorkSection = () => {
   >([]);
   const [techProjects, setTechProjects] = useState<BaseProject[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
+  const [page, setPage] = useState<number>(1);
+  const [hasMoreArchitecture, setHasMoreArchitecture] = useState<boolean>(true);
+  const [hasMoreTech, setHasMoreTech] = useState<boolean>(true);
+
+  useEffect(() => {
+    // This will handle the logic to fetch paginated architecture projects
+    const fetchArchitectureProjects = async () => {
+      try {
+        const response = await fetch(`/api/architecture-projects?page=${page}`);
+        const data = await response.json();
+        setArchitectureProjects((prev) => [...prev, ...data.projects]);
+        setHasMoreArchitecture(data.hasMore);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching architecture projects:", error);
+      }
+    };
+
+    if (hasMoreArchitecture) {
+      fetchArchitectureProjects();
+    }
+  }, [page, hasMoreArchitecture]);
+
+  useEffect(() => {
+    // This will handle the logic to fetch paginated tech projects
+    const fetchTechProjects = async () => {
+      try {
+        const response = await fetch(`/api/tech-projects?page=${page}`);
+        const data = await response.json();
+        setTechProjects((prev) => [...prev, ...data.projects]);
+        setHasMoreTech(data.hasMore);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching tech projects:", error);
+      }
+    };
+
+    if (hasMoreTech) {
+      fetchTechProjects();
+    }
+  }, [page, hasMoreTech]);
+
+  const handleLoadMore = () => {
+    if (hasMoreArchitecture) {
+      setPage((prev) => prev + 1); // Load next page of architecture projects
+    }
+    if (hasMoreTech) {
+      setPage((prev) => prev + 1); // Load next page of tech projects
+    }
+  };
 
   return (
     <div
       id="work"
-      className="relative flex flex-col items-center justify-center  text-white px-6 py-24 overflow-hidden "
+      className="relative flex flex-col items-center justify-center text-white px-6 py-24 overflow-hidden"
     >
-      {/* Fetch architecture and tech projects */}
-      <ArchitectureProjectList
-        setProjects={setArchitectureProjects}
-        setLoading={setLoading}
-      />
-      <TechProjectList
-        setTechProjects={setTechProjects}
-        setLoading={setLoading}
-      />
-
       {/* Section Title */}
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
@@ -137,6 +176,18 @@ const WorkSection = () => {
               />
             )}
           </motion.div>
+        </div>
+
+        {/* Load More Button */}
+        <div className="text-center mt-8">
+          {(hasMoreArchitecture || hasMoreTech) && (
+            <button
+              onClick={handleLoadMore}
+              className="bg-blue-400 text-white py-2 px-4 rounded-lg hover:bg-blue-500 transition duration-300"
+            >
+              Load More
+            </button>
+          )}
         </div>
       </motion.div>
     </div>
