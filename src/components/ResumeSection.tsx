@@ -53,10 +53,16 @@ const education = [
 
 const experience = [
   {
-    title: "Architect - Dunon Synergy Projects LTD",
+    title: "Architect/Project Manager - Dunon Synergy Projects LTD",
     duration: "2024 - Present",
     description:
       "Leading architectural design projects and supervising construction.",
+  },
+  {
+    title: "Backend Developer Intern - Geneysis Internship",
+    duration: "2024 - 2025",
+    description:
+      "Building scalable web applications using Nodejs and database technologies",
   },
   {
     title: "Frontend Developer Intern - HNG Internship",

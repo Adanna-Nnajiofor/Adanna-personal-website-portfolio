@@ -72,11 +72,17 @@ const AboutSection = () => {
               </motion.h1>
               <TypeAnimation
                 sequence={[
-                  "Architect ✨",
+                  "Architect ",
                   2000,
-                  "Frontend Developer 💻",
+                  "Frontend Developer ",
                   2000,
-                  "Creative Thinker 🧠",
+                  "Backend Developer ",
+                  2000,
+                  "Creative Thinker ",
+                  2000,
+                  "Writer ",
+                  2000,
+                  "Project Manager ",
                   2000,
                 ]}
                 wrapper="span"

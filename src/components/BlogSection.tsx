@@ -7,7 +7,7 @@ const BlogSection = () => {
   return (
     <div
       id="blog"
-      className="min-h-screen flex flex-col items-center justify-center  px-6 py-12"
+      className="min-h-screen flex flex-col items-center justify-center px-6 py-12"
     >
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -16,11 +16,12 @@ const BlogSection = () => {
         className="max-w-5xl mx-auto text-center"
       >
         <h1 className="text-5xl font-extrabold text-blue-900 mb-6">
-          Latest Articles
+          Latest Blogs
         </h1>
         <p className="text-lg text-gray-700 mb-12 max-w-3xl mx-auto">
-          Discover insights, tutorials, and experiences in frontend development,
-          architecture, and technology.
+          Explore a thoughtful blend of frontend development, architecture,
+          technology, real conversations, and human-centered stories, insights
+          shaped by experience and driven by curiosity.
         </p>
       </motion.div>
 
@@ -54,6 +55,26 @@ const BlogSection = () => {
           </motion.div>
         ))}
       </div>
+
+      {/* Link to Medium */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.5 }}
+        className="mt-12 text-center"
+      >
+        <p className="text-gray-700 text-lg">
+          Want to read more?{" "}
+          <Link
+            href="https://medium.com/@adanna.nnajiofor"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 font-semibold hover:text-blue-400 transition-colors"
+          >
+            Visit my Medium profile →
+          </Link>
+        </p>
+      </motion.div>
     </div>
   );
 };
