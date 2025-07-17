@@ -82,7 +82,7 @@ const ServicesSection = () => {
           My <span className="text-blue-400">Services</span>
         </h1>
         <p className="text-gray-600 mb-12">
-          From <strong>frontend development</strong> to{" "}
+          From <strong>software development</strong> to{" "}
           <strong>architectural designs</strong>, I craft experiences that merge
           aesthetics and functionality.
         </p>

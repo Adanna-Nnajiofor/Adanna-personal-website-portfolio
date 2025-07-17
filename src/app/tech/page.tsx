@@ -146,6 +146,37 @@ const TechPage = () => {
           </button>
         </div>
       )}
+      <motion.div
+        className="mt-24 border-t border-white/20 pt-12 text-center space-y-4"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="text-3xl font-bold text-white">Explore More Projects</h2>
+        <p className="text-lg text-gray-200 max-w-2xl mx-auto">
+          You can find more of my work and experiments on my GitHub and Vercel
+          profiles. I often ship new stuff there!
+        </p>
+        <div className="flex justify-center gap-6 flex-wrap mt-4">
+          <Link
+            href="https://github.com/Adanna-Nnajiofor"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-2 bg-black text-white rounded-full hover:bg-gray-900 transition-all duration-300 shadow-md"
+          >
+            GitHub Profile
+          </Link>
+          <Link
+            href="https://vercel.com/adanna-nnajiofors-projects"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-6 py-2 bg-white text-black rounded-full hover:bg-gray-100 transition-all duration-300 shadow-md"
+          >
+            Vercel Projects
+          </Link>
+        </div>
+      </motion.div>
     </div>
   );
 };

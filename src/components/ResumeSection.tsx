@@ -56,10 +56,10 @@ const experience = [
     title: "Architect/Project Manager - Dunon Synergy Projects LTD",
     duration: "2024 - Present",
     description:
-      "Leading architectural design projects and supervising construction.",
+      "Leading architectural design projects, managing projects and supervising construction.",
   },
   {
-    title: "Backend Developer Intern - Geneysis Internship",
+    title: "Backend Developer Intern - Geneysis Learnable",
     duration: "2024 - 2025",
     description:
       "Building scalable web applications using Nodejs and database technologies",
@@ -127,7 +127,7 @@ const ResumeSection = () => {
               Adanna Nnajiofor
             </h1>
             <p className="text-lg text-gray-300 mt-3">
-              Frontend Developer & Architect
+              Software Developer & Architect
             </p>
 
             {/* Resume & Portfolio Buttons */}
@@ -161,7 +161,7 @@ const ResumeSection = () => {
             {/* Tech Skills */}
             <div className="text-center">
               <motion.h2 className="text-2xl font-semibold mb-6">
-                💻 Tech Skills
+                Tech Skills
               </motion.h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 place-items-center">
                 {techSkills.map((skill, idx) => (

@@ -84,8 +84,10 @@ const HomeSection = () => {
           <span className="text-blue-500">
             <Typewriter
               words={[
-                "a Frontend Developer",
+                "a Software Developer",
                 "an Architect",
+                "a Project Manager",
+                "a Writer",
                 "a Creative Thinker",
               ]}
               loop={true}
@@ -177,7 +179,7 @@ const HomeSection = () => {
           className="relative group bg-white dark:bg-gray-800 shadow-xl rounded-2xl p-8 backdrop-blur-lg border border-gray-200 dark:border-gray-700 transition-all"
         >
           <FaLaptopCode className="text-4xl text-blue-400 mb-4 group-hover:text-blue-300 transition-all duration-300" />
-          <h3 className="text-2xl font-semibold mb-3">Frontend Development</h3>
+          <h3 className="text-2xl font-semibold mb-3">Software Development</h3>
           <p className="text-gray-700 dark:text-gray-300">
             Building fast, accessible, and scalable web applications using
             modern frameworks.

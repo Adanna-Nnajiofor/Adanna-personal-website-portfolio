@@ -20,7 +20,7 @@ const timelineItems = [
   },
   {
     icon: <FaLaptopCode className="text-blue-600 dark:text-blue-400" />,
-    title: "Frontend Development",
+    title: "Software Development",
     text: "Blending architecture and modern web technologies to create stunning UIs.",
   },
 ];
@@ -32,7 +32,7 @@ const AboutSection = () => {
         <title>About | Adanna Nnajiofor</title>
         <meta
           name="description"
-          content="About Adanna Nnajiofor - Architect & Frontend Developer"
+          content="About Adanna Nnajiofor - Architect & Software Developer"
         />
       </Head>
 
@@ -103,7 +103,7 @@ const AboutSection = () => {
                 turned
                 <span className="font-semibold text-blue-600 dark:text-blue-400">
                   {" "}
-                  Frontend Developer
+                  Software Developer
                 </span>
                 . I love crafting beautiful and intuitive user experiences that
                 blend aesthetics with functionality.
@@ -158,7 +158,7 @@ const AboutSection = () => {
             <p className="text-lg text-gray-700 dark:text-gray-300 italic">
               Great design is more than aesthetics. it is about functionality,
               usability, and experience. I bring an architect precision into
-              frontend development, crafting intuitive and captivating designs.
+              software development, crafting intuitive and captivating designs.
             </p>
           </motion.div>
 
